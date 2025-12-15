@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Question, EvaluationResult, UserAnswer } from '../types';
 import { OptionCard } from './OptionCard';

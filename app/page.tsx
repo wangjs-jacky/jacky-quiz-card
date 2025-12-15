@@ -1,9 +1,11 @@
+'use client';
+
 import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { AppState, Question, QuizSession, QuestionType, HistoryItem, UserAnswer, EvaluationResult } from './types';
-import { generateQuestions, evaluateAnswer } from './services/geminiService';
-import { saveToHistory, getHistory, deleteHistoryItem } from './services/storageService';
-import { QuizCard } from './components/QuizCard';
-import { Button } from './components/Button';
+import { AppState, Question, QuizSession, QuestionType, HistoryItem, UserAnswer, EvaluationResult } from '../types';
+import { generateQuestions, evaluateAnswer } from '../services/openRouterService';
+import { saveToHistory, getHistory, deleteHistoryItem } from '../services/storageService';
+import { QuizCard } from '../components/QuizCard';
+import { Button } from '../components/Button';
 import { 
     SparklesIcon, 
     BookOpenIcon, 
@@ -19,7 +21,7 @@ import {
     XMarkIcon
 } from '@heroicons/react/24/solid';
 
-const App: React.FC = () => {
+export default function Home() {
   const [appState, setAppState] = useState<AppState>(AppState.SETUP);
   const [topic, setTopic] = useState('');
   const [quizMode, setQuizMode] = useState<QuestionType>('mixed');
@@ -526,6 +528,5 @@ const App: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default App;
